@@ -1,0 +1,65 @@
+树莓派4B RASPI-LINUX安装OPENCV
+（Linux raspberrypi 5.10.17-v7l+ #1403 SMP Mon Feb 22 11:33:35 GMT 2021 armv7l）
+
+1. 参考https://blog.csdn.net/windfly17/article/details/106083676/
+
+2. 在树莓派上依此执行如下操作：
+
+	a. $ sudo apt-get update
+     	b. $ sudo apt-get upgrade
+	c. $ sudo pip3 install numpy
+	d. $ sudo apt-get install libhdf5-dev -y
+	e. $ sudo apt-get install libatlas-base-dev -y
+	f. $ sudo apt-get install libjasper-dev -y
+	g. $ sudo apt-get install libqt4-test -y
+	h. $ wget https://www.piwheels.org/simple/opencv-python/opencv_python-4.4.0.40-cp37-cp37m-linux_armv7l.whl
+	i. $ sudo pip3 install opencv_python-4.4.0.40-cp37-cp37m-linux_armv7l.whl
+
+3. 执行如下python程序，验证安装正常后看到摄像头画面，按ESC退出
+        import numpy as np
+        
+import cv2
+
+        
+
+cam = cv2.VideoCapture(0)
+
+        while True:
+	
+              ret, img = cam.read()
+	
+              cv2.imshow('cam', img)
+	
+              ch = cv2.waitKey(5)
+	
+              if ch == 27:
+		
+              break
+
+        cv2.destroyAllWindows()
+
+树莓派4B Ubuntu 18.04 desktop 安装OPENCV
+（Linux ubuntu 5.4.0-1030-raspi #33~18.04.1-Ubuntu SMP PREEMPT Thu Feb 25 21:50:25 UTC 2021 aarch64 aarch64 aarch64 GNU/Linux）
+
+1. 参考https://blog.csdn.net/qq_44880154/article/details/108849953
+
+2. 依此执行如下操作：
+
+   a. $ sudo apt-get install libopencv-dev
+   b. $ sudo apt-get install python3-opencv
+
+3. 如上第3步，验证安装是否正确。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
